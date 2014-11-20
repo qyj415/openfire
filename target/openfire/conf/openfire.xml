@@ -32,22 +32,22 @@
         <interface></interface>
     </network>
     -->  
-  <connectionProvider>
-    <className>org.jivesoftware.database.DefaultConnectionProvider</className>
-  </connectionProvider> 
-  <database>
-    <defaultProvider>
-      <driver>com.mysql.jdbc.Driver</driver> 
-      <serverURL>jdbc:mysql://127.0.0.1:3306/openfire?rewriteBatchedStatements=true</serverURL> 
-      <username encrypted="true">b936b8d44cd28da8a96e8b769c3a5a931a56af8491fe418b</username> 
-      <password encrypted="true">a9104360d3950c8cf07bf89d7a40437bdbc009b314c85cca</password> 
-      <testSQL>select 1</testSQL> 
-      <testBeforeUse>false</testBeforeUse> 
-      <testAfterUse>false</testAfterUse> 
-      <minConnections>5</minConnections> 
-      <maxConnections>25</maxConnections> 
-      <connectionTimeout>1.0</connectionTimeout>
-    </defaultProvider>
-  </database> 
-  <setup>true</setup>
+  <connectionProvider> 
+    <className>org.jivesoftware.database.DefaultConnectionProvider</className> 
+  </connectionProvider>  
+  <database> 
+    <defaultProvider> 
+      <driver>com.mysql.jdbc.Driver</driver>  
+      <serverURL>jdbc:mysql://127.0.0.1:3306/openfire?rewriteBatchedStatements=true</serverURL>  
+      <username encrypted="true">b936b8d44cd28da8a96e8b769c3a5a931a56af8491fe418b</username>  
+      <password encrypted="true">a9104360d3950c8cf07bf89d7a40437bdbc009b314c85cca</password>  
+      <testSQL>select 1</testSQL>  
+      <testBeforeUse>false</testBeforeUse>  
+      <testAfterUse>false</testAfterUse>  
+      <minConnections>5</minConnections>  
+      <maxConnections>25</maxConnections>  
+      <connectionTimeout>1.0</connectionTimeout> 
+    </defaultProvider> 
+  </database>  
+  <setup>true</setup> 
 </jive>

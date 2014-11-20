@@ -80,7 +80,9 @@ public abstract class ConnectionHandler extends IoHandlerAdapter {
     @Override
 	public void sessionOpened(IoSession session) throws Exception {
         // Create a new XML parser for the new connection. The parser will be used by the XMPPDecoder filter.
+    	//创建一个新的XML解析器的新的连接。解析器将使用XMPPDecoder过滤器。
         final XMLLightweightParser parser = new XMLLightweightParser(CHARSET);
+        //每个连接session绑定一个xml解析器
         session.setAttribute(XML_PARSER, parser);
         // Create a new NIOConnection for the new session
         final NIOConnection connection = createNIOConnection(session);
@@ -173,7 +175,7 @@ public abstract class ConnectionHandler extends IoHandlerAdapter {
             parser.setXPPFactory(factory);
             parsers.put(hashCode, parser);
         }
-        // Update counter of read btyes
+        // Update counter of read btyes 更新读取字节流数
         updateReadBytesCounter(session);
         //System.out.println("RCVD: " + message);
         // Let the stanza handler process the received stanza

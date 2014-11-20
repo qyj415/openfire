@@ -101,7 +101,8 @@ public abstract class StanzaHandler {
     }
 
     public void process(String stanza, XMPPPacketReader reader) throws Exception {
-
+    	//记录接受到消息
+    	Log.debug("Received message: {}.",stanza);
         boolean initialStream = stanza.startsWith("<stream:stream") || stanza.startsWith("<flash:stream");
         if (!sessionCreated || initialStream) {
             if (!initialStream) {
@@ -140,12 +141,12 @@ public abstract class StanzaHandler {
             return;
         }
 
-        // Verify if end of stream was requested
+        // Verify if end of stream was requested#关闭连接
         if (stanza.equals("</stream:stream>")) {
             session.close();
             return;
         }
-        // Ignore <?xml version="1.0"?> stanzas sent by clients
+        // Ignore <?xml version="1.0"?> stanzas sent by clients #自定义xml数据协议
         if (stanza.startsWith("<?xml")) {
             return;
         }
@@ -201,6 +202,7 @@ public abstract class StanzaHandler {
         }
 
         String tag = doc.getName();
+        //消息类型是<message>打头的，表示消息是message类型
         if ("message".equals(tag)) {
             Message packet;
             try {
@@ -219,6 +221,7 @@ public abstract class StanzaHandler {
             }
             processMessage(packet);
         }
+        //消息类型是<presence>打头的，表示消息请求用户的状态
         else if ("presence".equals(tag)) {
             Presence packet;
             try {
@@ -264,7 +267,7 @@ public abstract class StanzaHandler {
             }
             processPresence(packet);
         }
-        else if ("iq".equals(tag)) {
+        else if ("iq".equals(tag)) {//消息类型是<iq>打头的，表示客户端对server端的一个请求
             IQ packet;
             try {
                 packet = getIQ(doc);
