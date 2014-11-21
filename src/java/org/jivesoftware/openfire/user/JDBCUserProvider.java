@@ -100,8 +100,10 @@ public class JDBCUserProvider implements UserProvider {
         // Convert XML based provider setup to Database based
         JiveGlobals.migrateProperty("jdbcProvider.driver");
         JiveGlobals.migrateProperty("jdbcProvider.connectionString");
+        //获取用户信息sql
         JiveGlobals.migrateProperty("jdbcUserProvider.loadUserSQL");
         JiveGlobals.migrateProperty("jdbcUserProvider.userCountSQL");
+        //获取所有用户 #输入参数：无 	#输出列：用户的KEY #例：SELECT sn FROM user
         JiveGlobals.migrateProperty("jdbcUserProvider.allUsersSQL");
         JiveGlobals.migrateProperty("jdbcUserProvider.searchSQL");
         JiveGlobals.migrateProperty("jdbcUserProvider.usernameField");
@@ -124,12 +126,16 @@ public class JDBCUserProvider implements UserProvider {
 		}
 
 		// Load database statements for user data.
+		//
 		loadUserSQL = JiveGlobals.getProperty("jdbcUserProvider.loadUserSQL");
+		//获取所有用户数量 sql
 		userCountSQL = JiveGlobals.getProperty("jdbcUserProvider.userCountSQL");
 		allUsersSQL = JiveGlobals.getProperty("jdbcUserProvider.allUsersSQL");
 		searchSQL = JiveGlobals.getProperty("jdbcUserProvider.searchSQL");
 		usernameField = JiveGlobals.getProperty("jdbcUserProvider.usernameField");
+		//指定用户名称的列名如：name
 		nameField = JiveGlobals.getProperty("jdbcUserProvider.nameField");
+		//指定用户email的列名如：email
 		emailField = JiveGlobals.getProperty("jdbcUserProvider.emailField");
 	}
 

@@ -92,9 +92,13 @@ public class JDBCAuthProvider implements AuthProvider {
      */
     public JDBCAuthProvider() {
         // Convert XML based provider setup to Database based
+    	//数据源驱动
         JiveGlobals.migrateProperty("jdbcProvider.driver");
+        //连接字符串 url
         JiveGlobals.migrateProperty("jdbcProvider.connectionString");
+        //获取用户密码的SQL *输入参数：登录名 *输出列：密码 #例：SELECT pwd FROM user WHERE name=?
         JiveGlobals.migrateProperty("jdbcAuthProvider.passwordSQL");
+        //密码类型：plain(文本) ，md5，sha1
         JiveGlobals.migrateProperty("jdbcAuthProvider.passwordType");
         JiveGlobals.migrateProperty("jdbcAuthProvider.setPasswordSQL");
         JiveGlobals.migrateProperty("jdbcAuthProvider.allowUpdate");

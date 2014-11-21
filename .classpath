@@ -27,6 +27,7 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src/test/throttletest/src"/>
 	<classpathentry kind="src" path="src/tools/anttask"/>
+	<classpathentry kind="src" path="src/plugins/user-defined/src/java"/>
 	<classpathentry kind="lib" path="build/lib/ant-contrib.jar"/>
 	<classpathentry kind="lib" path="build/lib/ant-jive-edition.jar"/>
 	<classpathentry kind="lib" path="build/lib/ant-subdirtask.jar"/>

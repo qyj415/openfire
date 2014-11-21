@@ -92,8 +92,10 @@ public class JDBCGroupProvider extends AbstractGroupProvider {
         JiveGlobals.migrateProperty("jdbcProvider.driver");
         JiveGlobals.migrateProperty("jdbcProvider.connectionString");
         JiveGlobals.migrateProperty("jdbcGroupProvider.groupCountSQL");
+        //获取所有组的SQL #输入参数：无 	#输出列：组的key #例：SELECT sn FROM department
         JiveGlobals.migrateProperty("jdbcGroupProvider.allGroupsSQL");
         JiveGlobals.migrateProperty("jdbcGroupProvider.userGroupsSQL");
+        //获取组的名称(描述)SQL #输入参数：组记录的KEY 	#输出列：组的名称(描述) #例：SELECT name FROM department where sn=?
         JiveGlobals.migrateProperty("jdbcGroupProvider.descriptionSQL");
         JiveGlobals.migrateProperty("jdbcGroupProvider.loadMembersSQL");
         JiveGlobals.migrateProperty("jdbcGroupProvider.loadAdminsSQL");
@@ -114,11 +116,15 @@ public class JDBCGroupProvider extends AbstractGroupProvider {
         }
 
         // Load SQL statements
+        //获取组的数量SQL #输入参数：组记录的KEY 	#输出列：组的数量 #例：SELECT count(sn) FROM department
         groupCountSQL = JiveGlobals.getProperty("jdbcGroupProvider.groupCountSQL");
         allGroupsSQL = JiveGlobals.getProperty("jdbcGroupProvider.allGroupsSQL");
+        //获取成员的组SQL #输入参数：成员的KEY 	#输出列：成员所属组的KEY #例：SELECT departmentsn FROM department_user where user_sn=?
         userGroupsSQL = JiveGlobals.getProperty("jdbcGroupProvider.userGroupsSQL");
         descriptionSQL = JiveGlobals.getProperty("jdbcGroupProvider.descriptionSQL");
+        //获取组的成员SQL #输入参数：组的KEY 	#输出列：组成员的KEY(集合) #例：SELECT usersn FROM department_user where department_sn=?
         loadMembersSQL = JiveGlobals.getProperty("jdbcGroupProvider.loadMembersSQL");
+        //获取组的管理员SQL #输入参数：组记录的KEY 	#输出列：组管理员的KEY #例：SELECT admin FROM department where sn=?
         loadAdminsSQL = JiveGlobals.getProperty("jdbcGroupProvider.loadAdminsSQL");
     }
 

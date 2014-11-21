@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Plugin configuration for the broadcast plugin.
+-->
+<plugin>
+    <class>org.jivesoftware.openfire.plugin.Test</class>
+    <name>user-defined</name>
+    <description>用户自定义插件.</description>
+    <author>Qu</author>
+    <version>1.0.0</version>
+    <date>20/11/2014</date>
+    <url>http://www.igniterealtime.org</url>
+    <minServerVersion>3.9.0</minServerVersion>
+
+</plugin>
